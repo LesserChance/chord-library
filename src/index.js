@@ -1,15 +1,16 @@
+/* Global imports */
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import reducers from './redux/reducers'
-import thunk from 'redux-thunk';
-import App from './component/App'
 
-import './css/bulma.min.css';
-import './css/index.css';
+/* App imports */
+import store from 'state/store'
 
-const store = createStore(reducers, applyMiddleware(thunk));
+/* Component imports */
+import App from 'component/App'
+import 'css/bulma.min.css';
+import 'css/index.css';
+
 render(
   <Provider store={store}>
     <App />
