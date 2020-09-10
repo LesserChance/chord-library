@@ -1,16 +1,13 @@
-export const Modes = {
-    Major     : 'MAJOR',
-    Minor     : 'MINOR',
-    Ionian    : 'IONIAN',
-    Dorian    : 'DORIAN',
-    Phrygian  : 'PHYRGIAN',
-    Lydian    : 'LYDIAN',
-    Mixolydian: 'MIXOLYDIAN',
-    Aeolian   : 'AEOLIAN',
-    Locrian   : 'LOCRIAN'
+export const Keys = {
+    Major          : 'MAJOR',
+    Minor          : 'MINOR',
+    Harmonic_Minor : 'HARMONIC_MINOR',
+    Melodic_Minor  : 'MELODIC_MINOR'
+    //major: Lydian, and Mixolydian
+    //minor: Dorian, Phrygian, and Locrian
 };
 
-export const Keys = {
+export const Notes = {
     'C' : 0,
     'C#': 1,
     'D' : 2,
@@ -25,6 +22,9 @@ export const Keys = {
     'B' : 11
 };
 
-export const ModeMap = {
-  [Modes.Major]: [2,2,1,2,2,2]
+export const KeyMap = {
+  [Keys.Major]         : [2,2,1,2,2,2],
+  [Keys.Minor]         : [2,1,2,2,1,2],
+  [Keys.Harmonic_Minor]: [2,1,2,2,1,3],
+  [Keys.Melodic_Minor] : [2,1,2,2,2,2]
 }

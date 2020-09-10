@@ -1,0 +1,71 @@
+.Keyboard {
+  height: 240px; }
+  .Keyboard div.notes {
+    width: 560px;
+    height: 0;
+    margin: auto; }
+    .Keyboard div.notes .KeysInScale div {
+      float: left;
+      width: 40px;
+      position: relative;
+      text-align: center; }
+      .Keyboard div.notes .KeysInScale div div {
+        z-index: 2;
+        opacity: .2; }
+        .Keyboard div.notes .KeysInScale div div.in-key {
+          opacity: 1; }
+      .Keyboard div.notes .KeysInScale div div.w {
+        display: block;
+        width: 40px;
+        top: 210px; }
+      .Keyboard div.notes .KeysInScale div div.b {
+        position: absolute;
+        top: 110px;
+        color: #FFF;
+        left: -12px;
+        width: 20px;
+        font-size: .8rem; }
+  .Keyboard div.keys {
+    width: 560px;
+    height: 240px;
+    margin: -20px auto 0 auto; }
+    .Keyboard div.keys .KeysInScale div {
+      float: left;
+      width: 40px;
+      position: relative; }
+      .Keyboard div.keys .KeysInScale div div.w {
+        height: 220px;
+        width: 40px;
+        opacity: .6;
+        border: 1px solid #888;
+        background: linear-gradient(-30deg, #858585, #888);
+        box-shadow: inset 0 1px 0px #888, inset 0 -1px 0px #888, inset 1px 0px 0px #888, inset -1px 0px 0px #888, 0 4px 3px rgba(0, 0, 0, 0.7); }
+        .Keyboard div.keys .KeysInScale div div.w.in-key {
+          opacity: 1;
+          background: linear-gradient(-30deg, #f5f5f5, #FFF);
+          border: 1px solid #CCC;
+          box-shadow: inset 0 1px 0px #FFF, inset 0 -1px 0px #FFF, inset 1px 0px 0px #FFF, inset -1px 0px 0px #FFF, 0 4px 3px rgba(0, 0, 0, 0.7); }
+        .Keyboard div.keys .KeysInScale div div.w.in-chord {
+          border: 1px solid #1E90FF;
+          background: linear-gradient(-30deg, #f5f5f5, #1E90FF);
+          box-shadow: inset 0 1px 0px #87CEFA, inset 0 -1px 0px #87CEFA, inset 1px 0px 0px #87CEFA, inset -1px 0px 0px #87CEFA, 0 4px 3px rgba(0, 0, 0, 0.7); }
+      .Keyboard div.keys .KeysInScale div div.b {
+        position: absolute;
+        top: 0;
+        left: -12px;
+        width: 20px;
+        height: 120px;
+        z-index: 1;
+        border-width: 1px 2px 7px;
+        border-style: solid;
+        border-radius: 0 0 2px 2px;
+        border-color: #888;
+        background: linear-gradient(-30deg, #858585, #888);
+        box-shadow: inset 0px -1px 2px rgba(100, 100, 100, 0.4), 0 2px 3px rgba(0, 0, 0, 0.4); }
+        .Keyboard div.keys .KeysInScale div div.b.in-key {
+          background: linear-gradient(-25deg, #333, #000, #333);
+          border-color: #666 #222 #111 #555;
+          box-shadow: inset 0px -1px 2px rgba(255, 255, 255, 0.4), 0 2px 3px rgba(0, 0, 0, 0.4); }
+        .Keyboard div.keys .KeysInScale div div.b.in-chord {
+          background: linear-gradient(-25deg, #00008B, #1E90FF);
+          border-color: #00008B #00008B #111 #00008B; }

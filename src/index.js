@@ -9,7 +9,6 @@ import store from 'state/store'
 /* Component imports */
 import App from 'component/App'
 import 'css/bulma.min.css';
-import 'css/index.css';
 
 render(
   <Provider store={store}>

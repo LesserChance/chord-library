@@ -1,14 +1,21 @@
+/* Global imports */
 import React from 'react';
 import { connect } from 'react-redux'
 
-import '../css/app.css';
+/* Component imports */
+import ScaleComponent from 'component/Scale'
+import KeyboardComponent from 'component/Keyboard'
+import KeyComponent from 'component/Key'
+import ChordComponent from 'component/Chord'
 
 const AppComponent = (props) => {
   return (
     <div className="App">
-      <div className="jumbotron text-center">
-        <img src="./assets/logo.png" alt="My App" width="150" />
-        <h2>Chord Library</h2>
+      <ScaleComponent />
+      <KeyboardComponent />
+      <div>
+        <KeyComponent />
+        <ChordComponent />
       </div>
     </div>
   );
