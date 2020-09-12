@@ -11,31 +11,29 @@ import 'css/key.css';
 const Key = (props) => {
   return (
     <div className="Key is-inline-block">
-      <div className="px-4">
-        <div className="select">
-          <select defaultValue={props.note}>
-            {
-              Object.keys(Notes).map((noteName, noteIndex) => {
-                return (
-                  <option key={noteIndex} value={noteIndex}>{noteName}</option>
-                );
-              })
-            }
-          </select>
-        </div>
+      <div className="select is-small">
+        <select defaultValue={props.note}>
+          {
+            Object.keys(Notes).map((noteName, noteIndex) => {
+              return (
+                <option key={noteIndex} value={noteIndex}>{noteName}</option>
+              );
+            })
+          }
+        </select>
+      </div>
 
-        <div className="select">
-          <select defaultValue={props.scale}>
-            {
-              Object.keys(ScaleNames).map((scaleKey) => {
-                let scale = ScaleNames[scaleKey]
-                return (
-                  <option key={scaleKey} value={scaleKey}>{scale}</option>
-                );
-              })
-            }
-          </select>
-        </div>
+      <div className="select is-small">
+        <select defaultValue={props.scale}>
+          {
+            Object.keys(ScaleNames).map((scaleKey) => {
+              let scale = ScaleNames[scaleKey]
+              return (
+                <option key={scaleKey} value={scaleKey}>{scale}</option>
+              );
+            })
+          }
+        </select>
       </div>
     </div>
   );
