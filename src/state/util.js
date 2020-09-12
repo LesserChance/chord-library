@@ -9,31 +9,43 @@ export const getNoteName = (note) => {
   return `${Object.keys(Notes)[note]}`;
 };
 
-export const getNotesInScale = (note, scale, scale_rootnote) => {
+export const getNotesInScale = (scale, scale_rootnote) => {
   let notesInScale = [scale_rootnote];
-  ScaleNoteMap[scale].forEach((step, stepIndex) => {
-    notesInScale.push((notesInScale[stepIndex] + step) % 12)
-  })
+
+  for (let i = 1; i < ScaleNoteMap[scale].length; i++) {
+    let step = ScaleNoteMap[scale][i]
+    notesInScale.push((notesInScale[i-1] + step) % 12)
+  }
 
   return notesInScale;
 };
 
-export const getNotesInChord = (note, chord_rootnote, chord_type, scale, scale_rootnote) => {
-  let notesInScale = getNotesInScale(note, scale, scale_rootnote);
-  let notesInChord = [];
-  ChordNoteMap[chord_type].forEach((note) => {
-    notesInChord.push(notesInScale[note])
-  })
+export const getNotesInChord = (chord_type, chord_rootnote) => {
+  let notesInChord = [[chord_rootnote, 0]];
+
+  for (let i = 1; i < ChordNoteMap[chord_type].length; i++) {
+    let step = ChordNoteMap[chord_type][i]
+    let noteVal = (notesInChord[i-1][0] + step) % 12;
+    notesInChord.push([noteVal, (noteVal < chord_rootnote) ? 1 : 0 ])
+  }
 
   return notesInChord;
 };
 
-export const isNoteInKey = (note, scale, scale_rootnote) => {
-  let notesInScale = getNotesInScale(note, scale, scale_rootnote);
+export const isNoteInKey = (note, state) => {
+  let notesInScale = state.notes_in_scale;
   return notesInScale.includes(note);
 };
 
-export const isNoteInChord = (note, chord_rootnote, chord_type, scale, scale_rootnote) => {
-  let notesInChord = getNotesInChord(note, chord_rootnote, chord_type, scale, scale_rootnote);
-  return notesInChord.includes(note);
+export const isNoteInChord = (note, octave, state) => {
+  let notesInChord = state.notes_in_chord;
+
+  for (let i = 0; i < notesInChord.length; i++) {
+    let chordData = notesInChord[i]
+    if (note === chordData[0] && octave === chordData[1]) {
+      return true;
+    }
+  }
+
+  return false;
 };

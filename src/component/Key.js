@@ -11,8 +11,7 @@ import 'css/key.css';
 const Key = (props) => {
   return (
     <div className="Key is-inline-block">
-      <div className="pt-3 px-4">
-        <div className="is-inline-block mx-1 my-2">Key</div>
+      <div className="px-4">
         <div className="select">
           <select defaultValue={props.note}>
             {

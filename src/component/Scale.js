@@ -7,6 +7,7 @@ import { getScaleName } from 'state/util'
 import { ScaleChordMap, Chords } from 'const'
 
 /* Component imports */
+import KeyComponent from 'component/Key'
 import 'css/scale.css';
 
 const Scale = (props) => {
@@ -36,8 +37,8 @@ const Scale = (props) => {
         </button>
       </div>
 
-      <div className="button scaleName ml-3 has-text-weight-bold">
-        { props.scaleName }
+      <div className="button scaleName has-text-weight-bold">
+        <KeyComponent />
       </div>
     </div>
   );

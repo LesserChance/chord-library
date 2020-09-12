@@ -5,18 +5,16 @@ import { connect } from 'react-redux'
 /* Component imports */
 import ScaleComponent from 'component/Scale'
 import KeyboardComponent from 'component/Keyboard'
-import KeyComponent from 'component/Key'
 import ChordComponent from 'component/Chord'
 
 const AppComponent = (props) => {
   return (
     <div className="App">
-      <ScaleComponent />
-      <KeyboardComponent />
       <div>
-        <KeyComponent />
-        <ChordComponent />
+        <ScaleComponent />
+        <KeyboardComponent />
       </div>
+      <ChordComponent />
     </div>
   );
 }

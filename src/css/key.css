@@ -1,3 +1,2 @@
-.Key {
-  width: 50%;
-  float: left; }
+.Key .select select {
+  height: 2.6em; }

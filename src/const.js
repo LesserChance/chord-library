@@ -57,18 +57,18 @@ export const ScaleChordMap = {
  * @type {Object}
  */
 export const ScaleNoteMap = {
-  [Scales.Major]         : [2,2,1,2,2,2],
-  [Scales.Minor]         : [2,1,2,2,1,2],
-  [Scales.Harmonic_Minor]: [2,1,2,2,1,3],
-  [Scales.Melodic_Minor] : [2,1,2,2,2,2]
+  [Scales.Major]         : [0,2,2,1,2,2,2],
+  [Scales.Minor]         : [0,2,1,2,2,1,2],
+  [Scales.Harmonic_Minor]: [0,2,1,2,2,1,3],
+  [Scales.Melodic_Minor] : [0,2,1,2,2,2,2]
 }
 
 /**
- * ChordMap[type] = [1,2,5] representing the notes in the chord from the scale
+ * ChordMap[type] = [2,2,2] representing the steps from the previous note
  * @type {Object}
  */
 export const ChordNoteMap = {
-    [Chords['maj']]     : [0,2,4],
+    [Chords['maj']]     : [0,4,3],
     [Chords['sus4']]    : [],
     [Chords['sus2']]    : [],
     [Chords['(add(9))']]: [],
@@ -79,8 +79,7 @@ export const ChordNoteMap = {
     [Chords['maj7#11']] : [],
     [Chords['maj13']]   : [],
 
-    [Chords['min']]     : [1,3,5],
-
+    [Chords['min']]     : [0,3,4],
 }
 
 /**

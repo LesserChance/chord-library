@@ -13,7 +13,7 @@ const Chord = (props) => {
   return (
     <div className="Chord is-inline-block">
       <div className="pt-3 px-4">
-        <div className="is-inline-block mx-1 my-2">Chord Type</div>
+        <div className="is-inline-block mx-1 my-2">Chord</div>
         <div className="select">
           <select defaultValue={props.chord_type}>
             {
