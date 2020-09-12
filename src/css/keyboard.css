@@ -20,22 +20,23 @@
         .Keyboard div.notes .KeysInScale div div.w {
           display: block;
           width: 2em;
-          top: 8.5em; }
+          top: 8.5em;
+          font-size: 1rem; }
           .Keyboard div.notes .KeysInScale div div.w.is-root {
             font-weight: bold; }
         .Keyboard div.notes .KeysInScale div div.b {
           position: absolute;
-          top: 6em;
-          left: -.8em;
+          top: 9.5em;
+          left: -1.1em;
           width: 1em;
-          font-size: .8rem;
+          font-size: .6rem;
           color: #FFF; }
           .Keyboard div.notes .KeysInScale div div.b.is-root {
             font-weight: bold; }
   .Keyboard div.keys {
     width: 100%;
     height: 9em;
-    margin: -2em auto 0 auto; }
+    margin: -1.8em auto 0 auto; }
     .Keyboard div.keys .KeysInScale {
       margin: auto;
       clear: both;

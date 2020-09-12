@@ -7,12 +7,11 @@ import { getScaleName } from 'state/util'
 import { ScaleChordMap, Chords } from 'const'
 
 /* Component imports */
-import KeyComponent from 'component/Key'
 import 'css/scale.css';
 
 const Scale = (props) => {
   return (
-    <div className="Scale my-1 has-text-centered">
+    <div className="Scale my-1 is-inline-block">
       <div className="scaleOptions is-inline-block">
         <button className={"button is-small " + ((props.chordPosition === 0) ? 'is-primary' : '')}>
           {(props.scaleChordTypes[0] === Chords['maj']) ? 'I' : 'i'}
@@ -35,10 +34,6 @@ const Scale = (props) => {
         <button className={"button is-small " + ((props.chordPosition === 6) ? 'is-primary' : '')}>
           {(props.scaleChordTypes[6] === Chords['maj']) ? 'VII' : 'vii'}
         </button>
-      </div>
-
-      <div className="scaleName is-inline-block">
-        <KeyComponent />
       </div>
     </div>
   );

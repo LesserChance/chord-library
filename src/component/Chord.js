@@ -13,8 +13,7 @@ const Chord = (props) => {
   return (
     <div className="Chord is-inline-block">
       <div className="pt-3 px-4">
-        <div className="is-inline-block mx-1 my-2">Chord</div>
-        <div className="select">
+        <div className="select is-small">
           <select defaultValue={props.selected_chord_type}>
             {
               ChordOptions[props.scale_chord_type].map((chord) => {
