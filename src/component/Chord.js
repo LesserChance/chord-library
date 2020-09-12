@@ -1,5 +1,10 @@
+/* Global imports */
 import React from 'react';
 import { connect } from 'react-redux'
+
+/* App imports */
+import { Chords } from 'const'
+import { getNoteName } from 'state/util'
 
 /* Component imports */
 import 'css/chord.css';
@@ -10,17 +15,16 @@ const Chord = (props) => {
       <div className="pt-3 px-4">
         <div className="is-inline-block mx-1 my-2">Chord Type</div>
         <div className="select">
-          <select>
-            <option selected>C</option>
-            <option>Csus4</option>
-            <option>Csus2</option>
-            <option>C(add9)</option>
-            <option>C6</option>
-            <option>C6/9</option>
-            <option>Cmaj7</option>
-            <option>Cmaj9</option>
-            <option>Cmaj7#11</option>
-            <option>Cmaj13</option>
+          <select defaultValue={props.chord_type}>
+            {
+              Object.keys(Chords).map((chordName) => {
+                return (
+                  <option key={Chords[chordName]} value={Chords[chordName]}>
+                    {props.chord_rootnote_name}{chordName}
+                  </option>
+                );
+              })
+            }
           </select>
         </div>
       </div>
@@ -29,7 +33,11 @@ const Chord = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {}
+  return {
+    chord_rootnote: state.chord_rootnote,
+    chord_rootnote_name: getNoteName(state.chord_rootnote),
+    chord_type: state.chord_type
+  }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

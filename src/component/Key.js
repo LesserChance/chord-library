@@ -1,5 +1,9 @@
+/* Global imports */
 import React from 'react';
 import { connect } from 'react-redux'
+
+/* App imports */
+import { Notes, ScaleNames } from 'const'
 
 /* Component imports */
 import 'css/key.css';
@@ -10,25 +14,27 @@ const Key = (props) => {
       <div className="pt-3 px-4">
         <div className="is-inline-block mx-1 my-2">Key</div>
         <div className="select">
-          <select>
-            <option selected>C</option>
-            <option>C#</option>
-            <option>D</option>
-            <option>D#</option>
-            <option>E</option>
-            <option>F</option>
-            <option>F#</option>
-            <option>G</option>
-            <option>G#</option>
-            <option>A</option>
-            <option>A#</option>
-            <option>B</option>
+          <select defaultValue={props.note}>
+            {
+              Object.keys(Notes).map((noteName, noteIndex) => {
+                return (
+                  <option key={noteIndex} value={noteIndex}>{noteName}</option>
+                );
+              })
+            }
           </select>
         </div>
 
         <div className="select">
-          <select>
-            <option>Major</option>
+          <select defaultValue={props.scale}>
+            {
+              Object.keys(ScaleNames).map((scaleKey) => {
+                let scale = ScaleNames[scaleKey]
+                return (
+                  <option key={scaleKey} value={scaleKey}>{scale}</option>
+                );
+              })
+            }
           </select>
         </div>
       </div>
@@ -37,7 +43,10 @@ const Key = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {}
+  return {
+    note: state.scale_rootnote,
+    scale: state.scale
+  }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
