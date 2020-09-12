@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 /* App imports */
-import { Chords } from 'const'
+import { Chords, ChordOptions, ChordNames } from 'const'
 import { getNoteName } from 'state/util'
 
 /* Component imports */
@@ -15,12 +15,12 @@ const Chord = (props) => {
       <div className="pt-3 px-4">
         <div className="is-inline-block mx-1 my-2">Chord</div>
         <div className="select">
-          <select defaultValue={props.chord_type}>
+          <select defaultValue={props.selected_chord_type}>
             {
-              Object.keys(Chords).map((chordName) => {
+              ChordOptions[props.scale_chord_type].map((chord) => {
                 return (
-                  <option key={Chords[chordName]} value={Chords[chordName]}>
-                    {props.chord_rootnote_name}{chordName}
+                  <option key={chord} value={chord}>
+                    {props.chord_rootnote_name}{ChordNames[chord]}
                   </option>
                 );
               })
@@ -33,10 +33,13 @@ const Chord = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
+
+
   return {
     chord_rootnote: state.chord_rootnote,
     chord_rootnote_name: getNoteName(state.chord_rootnote),
-    chord_type: state.chord_type
+    scale_chord_type: state.scale_chord_type,
+    selected_chord_type: state.selected_chord_type
   }
 }
 

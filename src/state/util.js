@@ -22,11 +22,21 @@ export const getNotesInScale = (scale, scale_rootnote) => {
 
 export const getNotesInChord = (chord_type, chord_rootnote) => {
   let notesInChord = [[chord_rootnote, 0]];
+  let octave = 0;
 
   for (let i = 1; i < ChordNoteMap[chord_type].length; i++) {
     let step = ChordNoteMap[chord_type][i]
-    let noteVal = (notesInChord[i-1][0] + step) % 12;
-    notesInChord.push([noteVal, (noteVal < chord_rootnote) ? 1 : 0 ])
+    let steppedNote = (notesInChord[i-1][0] + step);
+    let noteVal = (steppedNote) % 12;
+
+    if(steppedNote >= 12) {
+      octave++;
+      if (octave == 2) {
+        octave = 0;
+      }
+    }
+
+    notesInChord.push([noteVal, octave ])
   }
 
   return notesInChord;

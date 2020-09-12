@@ -18,14 +18,56 @@ export const Chords = {
     'sus4': 'SUS4',
     'sus2': 'SUS2',
     '(add(9))': 'ADD9',
-    '6': 'MAJ6',
-    '6/9':'MAJ69',
+    '6': '6',
+    '7': '7',
+    '6/9':'69',
+    '11': '11',
     'maj7': 'MAJ7',
     'maj9': 'MAJ9',
     'maj7#11': 'MAJ7#11',
     'maj13': 'MAJ13',
 
     'min': 'MIN'
+};
+
+export const ChordNames = {
+    [Chords['maj']]: '',
+    [Chords['sus4']]: 'sus4',
+    [Chords['sus2']]: 'sus2',
+    [Chords['(add(9))']]: '(add(9))',
+    [Chords['6']]: '6',
+    [Chords['7']]: '7',
+    [Chords['11']]: '11',
+    [Chords['6/9']]: '6/9',
+    [Chords['maj7']]: 'maj7',
+    [Chords['maj9']]: 'maj9',
+    [Chords['maj7#11']]: 'maj7#11',
+    [Chords['maj13']]: 'maj13'
+};
+
+/**
+ * Use ChordOptions[min/maj] to get all chord types in minor or major
+ * @type {Object}
+ */
+export const ChordOptions = {
+    [Chords['maj']] : [
+        Chords['maj'],
+        Chords['sus4'],
+        Chords['sus2'],
+        Chords['(add(9))'],
+        Chords['6'],
+        Chords['6/9'],
+        Chords['7'],
+        Chords['11'],
+        Chords['maj7'],
+        Chords['maj9'],
+        Chords['maj7#11'],
+        Chords['maj13']
+    ],
+
+    [Chords['min']] : [
+        Chords['min'],
+    ]
 };
 
 export const Scales = {
@@ -74,20 +116,12 @@ export const ChordNoteMap = {
     [Chords['(add(9))']]: [],
     [Chords['6']]       : [],
     [Chords['6/9']]     : [],
-    [Chords['maj7']]    : [],
+    [Chords['7']]       : [0,4,3,3],
+    [Chords['11']]      : [0,4,3,3,4,3],
+    [Chords['maj7']]    : [0,4,3,4],
     [Chords['maj9']]    : [],
     [Chords['maj7#11']] : [],
     [Chords['maj13']]   : [],
 
     [Chords['min']]     : [0,3,4],
-}
-
-/**
- * Use ChordType[scale] to get all chord types in scale
- * @type {Object}
- */
-export const ChordType = {
-    [Scales.Major]: [
-        Chords['maj'],Chords['sus4'],Chords['sus2'],Chords['(add(9))'],Chords['6'],Chords['6/9'],Chords['maj7'],Chords['maj9'],Chords['maj7#11'],Chords['maj13']
-    ]
 }

@@ -70,11 +70,6 @@ const KeysInScale = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    scale: state.scale,
-    scale_rootnote: state.scale_rootnote,
-    chord_rootnote: state.chord_rootnote,
-    chord_type: state.chord_type,
-
     getKeyClass: (keyType, note, octave) => {
       let classes = [keyType]
       if (isNoteInKey(note, state)) {
@@ -82,6 +77,9 @@ const mapStateToProps = (state, ownProps) => {
       }
       if (isNoteInChord(note, octave, state)) {
         classes.push("in-chord")
+      }
+      if (note == state.chord_rootnote) {
+        classes.push("is-root")
       }
       return classes.join(" ");
     }

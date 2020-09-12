@@ -47,7 +47,7 @@ const Scale = (props) => {
 const mapStateToProps = (state, ownProps) => {
   return {
     scaleName: getScaleName(state.scale, state.scale_rootnote),
-    chordPosition: state.chord_position,
+    chordPosition: state.scale_chord_position,
     scaleChordTypes: ScaleChordMap[state.scale]
   }
 }
