@@ -8,6 +8,7 @@ import store from 'state/store'
 
 /* Component imports */
 import App from 'component/App'
+import 'css/app.css'
 import 'css/bulma.min.css';
 
 render(

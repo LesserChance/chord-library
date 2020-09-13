@@ -6,9 +6,6 @@ import { connect } from 'react-redux'
 import { Notes, ScaleNames } from 'const'
 import { selectKeyRootnote, selectKeyScale } from 'state/actions'
 
-/* Component imports */
-import 'css/key.css';
-
 const Key = (props) => {
   return (
     <div className="Key is-inline-block">
