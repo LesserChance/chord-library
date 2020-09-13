@@ -5,65 +5,69 @@ import { connect } from 'react-redux'
 /* App imports */
 import { Notes } from 'const'
 import { isNoteInKey, isNoteInChord } from 'state/util'
+import { selectKeyRootnote } from 'state/actions'
 
 const KeysInScale = (props) => {
   let showName = props.showName;
 
   return (
     <div className="KeysInScale">
-      <div>
-        <div className={props.getKeyClass("w", Notes.C, 0)}>{ showName && <span>C</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("b", Notes['C#'], 0)}>{ showName && <span>C#</span> }</div>
-        <div className={props.getKeyClass("w", Notes.D, 0)}>{ showName && <span>D</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("b", Notes['D#'], 0)}>{ showName && <span>D#</span> }</div>
-        <div className={props.getKeyClass("w", Notes.E, 0)}>{ showName && <span>E</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("w", Notes.F, 0)}>{ showName && <span>F</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("b", Notes['F#'], 0)}>{ showName && <span>F#</span> }</div>
-        <div className={props.getKeyClass("w", Notes.G, 0)}>{ showName && <span>G</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("b", Notes['G#'], 0)}>{ showName && <span>G#</span> }</div>
-        <div className={props.getKeyClass("w", Notes.A, 0)}>{ showName && <span>A</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("b", Notes['A#'], 0)}>{ showName && <span>A#</span> }</div>
-        <div className={props.getKeyClass("w", Notes.B, 0)}>{ showName && <span>B</span> }</div>
-      </div>
-
-      <div>
-        <div className={props.getKeyClass("w", Notes.C, 1)}>{ showName && <span>C</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("b", Notes['C#'], 1)}>{ showName && <span>C#</span> }</div>
-        <div className={props.getKeyClass("w", Notes.D, 1)}>{ showName && <span>D</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("b", Notes['D#'], 1)}>{ showName && <span>D#</span> }</div>
-        <div className={props.getKeyClass("w", Notes.E, 1)}>{ showName && <span>E</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("w", Notes.F, 1)}>{ showName && <span>F</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("b", Notes['F#'], 1)}>{ showName && <span>F#</span> }</div>
-        <div className={props.getKeyClass("w", Notes.G, 1)}>{ showName && <span>G</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("b", Notes['G#'], 1)}>{ showName && <span>G#</span> }</div>
-        <div className={props.getKeyClass("w", Notes.A, 1)}>{ showName && <span>A</span> }</div>
-      </div>
-      <div>
-        <div className={props.getKeyClass("b", Notes['A#'], 1)}>{ showName && <span>A#</span> }</div>
-        <div className={props.getKeyClass("w", Notes.B, 1)}>{ showName && <span>B</span> }</div>
-      </div>
+      {
+        [0,1].map((octave) => {
+          return <div>
+            <div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes.C)}
+                className={props.getKeyClass("w", Notes.C, octave)}>{ showName && <span>C</span> }</div>
+            </div>
+            <div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes['C#'])}
+                className={props.getKeyClass("b", Notes['C#'], octave)}>{ showName && <span>C#</span> }</div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes.D)}
+                className={props.getKeyClass("w", Notes.D, octave)}>{ showName && <span>D</span> }</div>
+            </div>
+            <div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes['D#'])}
+                className={props.getKeyClass("b", Notes['D#'], octave)}>{ showName && <span>D#</span> }</div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes.E)}
+                className={props.getKeyClass("w", Notes.E, octave)}>{ showName && <span>E</span> }</div>
+            </div>
+            <div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes.F)}
+                className={props.getKeyClass("w", Notes.F, octave)}>{ showName && <span>F</span> }</div>
+            </div>
+            <div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes['F#'])}
+                className={props.getKeyClass("b", Notes['F#'], octave)}>{ showName && <span>F#</span> }</div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes.G)}
+                className={props.getKeyClass("w", Notes.G, octave)}>{ showName && <span>G</span> }</div>
+            </div>
+            <div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes['G#'])}
+                className={props.getKeyClass("b", Notes['G#'], octave)}>{ showName && <span>G#</span> }</div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes.A)}
+                className={props.getKeyClass("w", Notes.A, octave)}>{ showName && <span>A</span> }</div>
+            </div>
+            <div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes['A#'])}
+                className={props.getKeyClass("b", Notes['A#'], octave)}>{ showName && <span>A#</span> }</div>
+              <div
+                onClick={(e) => props.selectScaleRootnote(Notes.B)}
+                className={props.getKeyClass("w", Notes.B, octave)}>{ showName && <span>B</span> }</div>
+            </div>
+          </div>
+        })
+      }
     </div>
   );
 }
@@ -87,7 +91,11 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {}
+  return {
+    selectScaleRootnote: (scaleRootnote) => {
+      dispatch(selectKeyRootnote(parseInt(scaleRootnote, 10)));
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(KeysInScale)

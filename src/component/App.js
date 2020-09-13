@@ -10,7 +10,7 @@ import ChordComponent from 'component/Chord'
 
 const AppComponent = (props) => {
   return (
-    <div className="App" style={{minWidth: '480px'}}>
+    <div className="App mt-1" style={{minWidth: '480px'}}>
       <div className="has-text-centered is-clearfix">
         <KeyComponent />
       </div>

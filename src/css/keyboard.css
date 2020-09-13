@@ -9,31 +9,31 @@
       width: 29em;
       top: -.6em;
       position: relative; }
-      .Keyboard div.notes .KeysInScale div {
+      .Keyboard div.notes .KeysInScale div div {
         float: left;
         width: 2em;
         position: relative;
         text-align: center; }
-        .Keyboard div.notes .KeysInScale div div {
+        .Keyboard div.notes .KeysInScale div div div {
           z-index: 2;
           opacity: .2; }
-          .Keyboard div.notes .KeysInScale div div.in-key {
+          .Keyboard div.notes .KeysInScale div div div.in-key {
             opacity: 1; }
-        .Keyboard div.notes .KeysInScale div div.w {
+        .Keyboard div.notes .KeysInScale div div div.w {
           display: block;
           width: 2em;
           top: 8.5em;
           font-size: 1rem; }
-          .Keyboard div.notes .KeysInScale div div.w.is-root {
+          .Keyboard div.notes .KeysInScale div div div.w.is-root {
             font-weight: bold; }
-        .Keyboard div.notes .KeysInScale div div.b {
+        .Keyboard div.notes .KeysInScale div div div.b {
           position: absolute;
           top: 9.5em;
           left: -.7em;
           width: 1em;
           font-size: .6rem;
           color: #FFF; }
-          .Keyboard div.notes .KeysInScale div div.b.is-root {
+          .Keyboard div.notes .KeysInScale div div div.b.is-root {
             font-weight: bold; }
   .Keyboard div.keys {
     width: 100%;
@@ -45,33 +45,33 @@
       width: 29em;
       top: -.6em;
       position: relative; }
-      .Keyboard div.keys .KeysInScale div {
+      .Keyboard div.keys .KeysInScale div div {
         float: left;
         width: 2em;
         position: relative; }
-        .Keyboard div.keys .KeysInScale div div.w {
+        .Keyboard div.keys .KeysInScale div div div.w {
           height: 9em;
           width: 2em;
           opacity: .6;
           border: 1px solid #888;
           background: linear-gradient(-30deg, #858585, #888);
           box-shadow: inset 0 1px 0px #888, inset 0 -1px 0px #888, inset 1px 0px 0px #888, inset -1px 0px 0px #888, 0 4px 3px rgba(0, 0, 0, 0.7); }
-          .Keyboard div.keys .KeysInScale div div.w.in-key {
+          .Keyboard div.keys .KeysInScale div div div.w.in-key {
             opacity: 1;
             background: linear-gradient(-30deg, #f5f5f5, #FFF);
             border: 1px solid #CCC;
             box-shadow: inset 0 1px 0px #FFF, inset 0 -1px 0px #FFF, inset 1px 0px 0px #FFF, inset -1px 0px 0px #FFF, 0 4px 3px rgba(0, 0, 0, 0.7); }
-          .Keyboard div.keys .KeysInScale div div.w.in-chord {
+          .Keyboard div.keys .KeysInScale div div div.w.in-chord {
             border: 1px solid #1E90FF;
             background: linear-gradient(-30deg, #f5f5f5, #1E90FF);
             box-shadow: inset 0 1px 0px #87CEFA, inset 0 -1px 0px #87CEFA, inset 1px 0px 0px #87CEFA, inset -1px 0px 0px #87CEFA, 0 4px 3px rgba(0, 0, 0, 0.7); }
-          .Keyboard div.keys .KeysInScale div div.w.in-chord.is-root {
+          .Keyboard div.keys .KeysInScale div div div.w.in-chord.is-root {
             background: linear-gradient(-30deg, #1E90FF, #f5f5f5); }
-          .Keyboard div.keys .KeysInScale div div.w.in-chord:not(.in-key) {
+          .Keyboard div.keys .KeysInScale div div div.w.in-chord:not(.in-key) {
             border: 1px solid #F00;
             background: linear-gradient(-30deg, #FF8585, #F00);
             box-shadow: inset 0 1px 0px #FF8585, inset 0 -1px 0px #FF8585, inset 1px 0px 0px #FF8585, inset -1px 0px 0px #FF8585, 0 4px 3px rgba(0, 0, 0, 0.7); }
-        .Keyboard div.keys .KeysInScale div div.b {
+        .Keyboard div.keys .KeysInScale div div div.b {
           position: absolute;
           top: 0;
           left: -.5em;
@@ -84,15 +84,15 @@
           border-color: #888;
           background: linear-gradient(-30deg, #858585, #888);
           box-shadow: inset 0px -1px 2px rgba(100, 100, 100, 0.4), 0 2px 3px rgba(0, 0, 0, 0.4); }
-          .Keyboard div.keys .KeysInScale div div.b.in-key {
+          .Keyboard div.keys .KeysInScale div div div.b.in-key {
             background: linear-gradient(-25deg, #333, #000, #333);
             border-color: #666 #222 #111 #555;
             box-shadow: inset 0px -1px 2px rgba(255, 255, 255, 0.4), 0 2px 3px rgba(0, 0, 0, 0.4); }
-          .Keyboard div.keys .KeysInScale div div.b.in-chord {
+          .Keyboard div.keys .KeysInScale div div div.b.in-chord {
             background: linear-gradient(-25deg, #00008B, #1E90FF);
             border-color: #00008B #00008B #111 #00008B; }
-          .Keyboard div.keys .KeysInScale div div.b.in-chord.is-root {
+          .Keyboard div.keys .KeysInScale div div div.b.in-chord.is-root {
             background: linear-gradient(-25deg, #1E90FF, #00008B); }
-          .Keyboard div.keys .KeysInScale div div.b.in-chord:not(.in-key) {
+          .Keyboard div.keys .KeysInScale div div div.b.in-chord:not(.in-key) {
             background: linear-gradient(-25deg, #F55, #FF8585);
             border-color: #F00 #F00 #511 #F00; }

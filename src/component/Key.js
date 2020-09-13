@@ -21,7 +21,7 @@ const Key = (props) => {
         </select>
       </div>
 
-      <div className="select is-large">
+      <div className="select is-large ml-1">
         <select value={props.scale} onChange={(e) => props.selectScale(e.target.value)}>
           {
             Object.keys(ScaleNames).map((scaleKey) => {
