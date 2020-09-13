@@ -1,0 +1,16 @@
+directories:
+  output: dist
+  buildResources: assets
+files:
+  - filter:
+      - build/**/*
+      - build/**/*
+      - node_modules/**/*
+extraMetadata:
+  main: build/electron.js
+appId: com.electron.chordlibrary
+productName: Chord Library
+linux:
+  target: tar.gz
+extends: react-cra
+electronVersion: 9.1.0
