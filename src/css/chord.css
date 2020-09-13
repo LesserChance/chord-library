@@ -1,4 +1,7 @@
-.Chord select {
-  width: 10em; }
-  .Chord select option.in-key {
-    font-weight: bold; }
+.Chord {
+  left: -.5em;
+  position: relative; }
+  .Chord select {
+    width: 10em; }
+    .Chord select option.in-key {
+      font-weight: bold; }

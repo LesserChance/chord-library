@@ -17,10 +17,8 @@ const AppComponent = (props) => {
       <div className="has-text-centered is-clearfix">
         <KeyboardComponent />
       </div>
-      <div className="has-text-centered is-clearfix">
+      <div className="has-text-centered mt-1 is-clearfix">
         <ScaleComponent />
-      </div>
-      <div className="has-text-centered is-clearfix">
         <ChordComponent />
       </div>
     </div>

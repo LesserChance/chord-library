@@ -1,5 +1,9 @@
-.Scale .scaleOptions {
-  border: 1px solid #dbdbdb;
-  border-radius: 4px; }
-  .Scale .scaleOptions .button {
-    border: 0; }
+.Scale {
+  left: -.5em;
+  position: relative; }
+  .Scale .scaleOptions {
+    border: 1px solid #dbdbdb;
+    border-radius: 4px; }
+    .Scale .scaleOptions .button {
+      border: 0;
+      padding: .9em .3em; }

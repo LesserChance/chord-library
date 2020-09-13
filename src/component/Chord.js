@@ -13,7 +13,7 @@ import 'css/chord.css';
 const Chord = (props) => {
   return (
     <div className="Chord is-inline-block">
-      <div className="pt-3 px-4">
+      <div className="pl-1">
         <div className="select is-large">
           <select value={props.selectedChordType} onChange={(e) => props.selectChordType(e.target.value)}>
             {

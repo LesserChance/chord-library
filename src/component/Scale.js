@@ -16,7 +16,7 @@ const Scale = (props) => {
   let lowercase = ['i','ii','iii','iv','v','vi','vii'];
 
   return (
-    <div className="Scale my-1 is-inline-block">
+    <div className="Scale is-inline-block">
       <div className="scaleOptions is-inline-block">
         {
           chordPositions.map((chordPosition) => {
@@ -24,7 +24,7 @@ const Scale = (props) => {
               <button
                 key={chordPosition}
                 onClick={(e) => props.selectChordPosition(chordPosition)}
-                className={"button " + ((props.chordPosition === chordPosition) ? 'is-primary' : '')}>
+                className={"button is-large " + ((props.chordPosition === chordPosition) ? 'is-primary' : '')}>
                 {(CapitalChords.includes(props.scaleChordTypes[chordPosition])) ? capital[chordPosition] : lowercase[chordPosition]}
               </button>
             );
