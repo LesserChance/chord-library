@@ -19,6 +19,8 @@ const AppComponent = (props) => {
       </div>
       <div className="has-text-centered is-clearfix">
         <ScaleComponent />
+      </div>
+      <div className="has-text-centered is-clearfix">
         <ChordComponent />
       </div>
     </div>

@@ -12,7 +12,7 @@ import 'css/key.css';
 const Key = (props) => {
   return (
     <div className="Key is-inline-block">
-      <div className="select is-small">
+      <div className="select is-large">
         <select value={props.note} onChange={(e) => props.selectScaleRootnote(e.target.value)}>
           {
             Object.keys(Notes).map((noteName, noteIndex) => {
@@ -24,7 +24,7 @@ const Key = (props) => {
         </select>
       </div>
 
-      <div className="select is-small">
+      <div className="select is-large">
         <select value={props.scale} onChange={(e) => props.selectScale(e.target.value)}>
           {
             Object.keys(ScaleNames).map((scaleKey) => {

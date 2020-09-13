@@ -1,19 +1,24 @@
 {
   "name": "CHORD-LIBRARY",
-  "description": "CHORD-LIBRARY",
+  "productName": "Chord Library",
+  "description": "Key/Chord library for a raspberry pi",
   "author": "Ryan Bateman",
   "version": "0.1.0",
   "private": true,
   "main": "public/electron.js",
   "homepage": "./",
   "build": {
-    "appId": "MY-APP",
+    "appId": "com.electron.chordlibrary",
+    "productName": "Chord Library",
     "files": [
       "build/**/*",
       "node_modules/**/*"
     ],
     "directories": {
       "buildResources": "assets"
+    },
+    "linux": {
+      "target": "tar.gz"
     }
   },
   "dependencies": {
@@ -38,8 +43,9 @@
   },
   "scripts": {
     "preelectron-pack": "yarn run build",
-    "electron-pack": "electron-builder build -m -w -c.extraMetadata.main=build/electron.js",
+    "electron-pack": "electron-builder build -l --armv7l -c.extraMetadata.main=build/electron.js",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "yarn run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "npm-run-all -p watch-css start-react",

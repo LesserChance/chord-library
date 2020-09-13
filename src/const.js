@@ -88,7 +88,7 @@ export const ScaleNoteMap = {
 }
 
 /**
- * ChordMap[type] = [2,2,2] representing the steps from the previous note
+ * ChordMap[type] = [0,2,2] representing the steps from the previous note (starting at root note)
  * @type {Object}
  */
 export const ChordNoteMap = {

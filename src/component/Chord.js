@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 /* App imports */
-import { Chords, ChordOptions } from 'const'
+import { Chords } from 'const'
 import { getNoteName, isChordInKey } from 'state/util'
 import { selectChordType } from 'state/actions'
 
@@ -14,7 +14,7 @@ const Chord = (props) => {
   return (
     <div className="Chord is-inline-block">
       <div className="pt-3 px-4">
-        <div className="select is-small">
+        <div className="select is-large">
           <select value={props.selectedChordType} onChange={(e) => props.selectChordType(e.target.value)}>
             {
               props.chordOptions.map((chord) => {

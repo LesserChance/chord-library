@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 /* App imports */
 import { selectChordPosition } from 'state/actions'
 import { getScaleName } from 'state/util'
-import { ScaleChordMap, Chords, CapitalChords } from 'const'
+import { ScaleChordMap, CapitalChords } from 'const'
 
 /* Component imports */
 import 'css/scale.css';
@@ -24,7 +24,7 @@ const Scale = (props) => {
               <button
                 key={chordPosition}
                 onClick={(e) => props.selectChordPosition(chordPosition)}
-                className={"button is-small " + ((props.chordPosition === chordPosition) ? 'is-primary' : '')}>
+                className={"button " + ((props.chordPosition === chordPosition) ? 'is-primary' : '')}>
                 {(CapitalChords.includes(props.scaleChordTypes[chordPosition])) ? capital[chordPosition] : lowercase[chordPosition]}
               </button>
             );

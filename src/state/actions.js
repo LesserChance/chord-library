@@ -1,7 +1,3 @@
-/* App imports */
-import { ScaleChordMap } from 'const'
-import { getNotesInScale } from 'state/util'
-
 export const Actions = {
   SET_KEY: 'SET_KEY',
   SELECT_CHORD_POSITION: 'SELECT_CHORD_POSITION',
