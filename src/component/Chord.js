@@ -3,8 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 /* App imports */
-import { Chords, ChordOptions, ChordNames } from 'const'
-import { getNoteName } from 'state/util'
+import { Chords, ChordOptions } from 'const'
+import { getNoteName, isChordInKey } from 'state/util'
+import { selectChordType } from 'state/actions'
 
 /* Component imports */
 import 'css/chord.css';
@@ -14,12 +15,13 @@ const Chord = (props) => {
     <div className="Chord is-inline-block">
       <div className="pt-3 px-4">
         <div className="select is-small">
-          <select defaultValue={props.selected_chord_type}>
+          <select value={props.selectedChordType} onChange={(e) => props.selectChordType(e.target.value)}>
             {
-              ChordOptions[props.scale_chord_type].map((chord) => {
+              props.chordOptions.map((chord) => {
                 return (
                   <option key={chord} value={chord}>
-                    {props.chord_rootnote_name}{ChordNames[chord]}
+                    {!isChordInKey(chord, props.chordRootnote, props.notesInScale) ? '~~ ' : ''}
+                    {props.chordRootnoteName}{Chords[chord]}
                   </option>
                 );
               })
@@ -32,18 +34,23 @@ const Chord = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-
-
   return {
-    chord_rootnote: state.chord_rootnote,
-    chord_rootnote_name: getNoteName(state.chord_rootnote),
-    scale_chord_type: state.scale_chord_type,
-    selected_chord_type: state.selected_chord_type
+    chordOptions: Object.values(Chords),
+    chordRootnote: state.chordRootnote,
+    chordRootnoteName: getNoteName(state.chordRootnote),
+    scaleChordType: state.scaleChordType,
+    selectedChordType: state.selectedChordType,
+
+    notesInScale: state.notesInScale
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {}
+  return {
+    selectChordType: (chordType) => {
+      dispatch(selectChordType(chordType));
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chord)

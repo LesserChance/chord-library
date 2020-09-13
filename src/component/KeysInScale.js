@@ -78,7 +78,7 @@ const mapStateToProps = (state, ownProps) => {
       if (isNoteInChord(note, octave, state)) {
         classes.push("in-chord")
       }
-      if (note == state.chord_rootnote) {
+      if (note === state.chordRootnote) {
         classes.push("is-root")
       }
       return classes.join(" ");

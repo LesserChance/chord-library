@@ -3,37 +3,33 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 /* App imports */
+import { selectChordPosition } from 'state/actions'
 import { getScaleName } from 'state/util'
-import { ScaleChordMap, Chords } from 'const'
+import { ScaleChordMap, Chords, CapitalChords } from 'const'
 
 /* Component imports */
 import 'css/scale.css';
 
 const Scale = (props) => {
+  let chordPositions = [0,1,2,3,4,5,6];
+  let capital = ['I','II','III','IV','V','VI','VII'];
+  let lowercase = ['i','ii','iii','iv','v','vi','vii'];
+
   return (
     <div className="Scale my-1 is-inline-block">
       <div className="scaleOptions is-inline-block">
-        <button className={"button is-small " + ((props.chordPosition === 0) ? 'is-primary' : '')}>
-          {(props.scaleChordTypes[0] === Chords['maj']) ? 'I' : 'i'}
-        </button>
-        <button className={"button is-small " + ((props.chordPosition === 1) ? 'is-primary' : '')}>
-          {(props.scaleChordTypes[1] === Chords['maj']) ? 'II' : 'ii'}
-        </button>
-        <button className={"button is-small " + ((props.chordPosition === 2) ? 'is-primary' : '')}>
-          {(props.scaleChordTypes[2] === Chords['maj']) ? 'III' : 'iii'}
-        </button>
-        <button className={"button is-small " + ((props.chordPosition === 3) ? 'is-primary' : '')}>
-          {(props.scaleChordTypes[3] === Chords['maj']) ? 'IV' : 'iv'}
-        </button>
-        <button className={"button is-small " + ((props.chordPosition === 4) ? 'is-primary' : '')}>
-          {(props.scaleChordTypes[4] === Chords['maj']) ? 'V' : 'v'}
-        </button>
-        <button className={"button is-small " + ((props.chordPosition === 5) ? 'is-primary' : '')}>
-          {(props.scaleChordTypes[5] === Chords['maj']) ? 'VI' : 'vi'}
-        </button>
-        <button className={"button is-small " + ((props.chordPosition === 6) ? 'is-primary' : '')}>
-          {(props.scaleChordTypes[6] === Chords['maj']) ? 'VII' : 'vii'}
-        </button>
+        {
+          chordPositions.map((chordPosition) => {
+            return (
+              <button
+                key={chordPosition}
+                onClick={(e) => props.selectChordPosition(chordPosition)}
+                className={"button is-small " + ((props.chordPosition === chordPosition) ? 'is-primary' : '')}>
+                {(CapitalChords.includes(props.scaleChordTypes[chordPosition])) ? capital[chordPosition] : lowercase[chordPosition]}
+              </button>
+            );
+          })
+        }
       </div>
     </div>
   );
@@ -41,14 +37,18 @@ const Scale = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    scaleName: getScaleName(state.scale, state.scale_rootnote),
-    chordPosition: state.scale_chord_position,
-    scaleChordTypes: ScaleChordMap[state.scale]
+    scaleName: getScaleName(state.keyScale, state.keyRootnote),
+    chordPosition: state.scaleChordPosition,
+    scaleChordTypes: ScaleChordMap[state.keyScale]
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {}
+  return {
+    selectChordPosition: (chordPosition) => {
+      dispatch(selectChordPosition(parseInt(chordPosition, 10)));
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Scale)

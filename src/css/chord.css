@@ -1,0 +1,4 @@
+.Chord select {
+  width: 10em; }
+  .Chord select option.in-key {
+    font-weight: bold; }

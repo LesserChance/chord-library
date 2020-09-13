@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 /* App imports */
 import { Notes, ScaleNames } from 'const'
+import { selectKeyRootnote, selectKeyScale } from 'state/actions'
 
 /* Component imports */
 import 'css/key.css';
@@ -12,7 +13,7 @@ const Key = (props) => {
   return (
     <div className="Key is-inline-block">
       <div className="select is-small">
-        <select defaultValue={props.note}>
+        <select value={props.note} onChange={(e) => props.selectScaleRootnote(e.target.value)}>
           {
             Object.keys(Notes).map((noteName, noteIndex) => {
               return (
@@ -24,7 +25,7 @@ const Key = (props) => {
       </div>
 
       <div className="select is-small">
-        <select defaultValue={props.scale}>
+        <select value={props.scale} onChange={(e) => props.selectScale(e.target.value)}>
           {
             Object.keys(ScaleNames).map((scaleKey) => {
               let scale = ScaleNames[scaleKey]
@@ -41,13 +42,20 @@ const Key = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    note: state.scale_rootnote,
-    scale: state.scale
+    note: state.keyRootnote,
+    scale: state.keyScale
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {}
+  return {
+    selectScaleRootnote: (scaleRootnote) => {
+      dispatch(selectKeyRootnote(parseInt(scaleRootnote, 10)));
+    },
+    selectScale: (scale) => {
+      dispatch(selectKeyScale(scale));
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Key)

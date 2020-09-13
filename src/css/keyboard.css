@@ -6,7 +6,9 @@
     .Keyboard div.notes .KeysInScale {
       margin: auto;
       clear: both;
-      width: 29em; }
+      width: 29em;
+      top: -.5em;
+      position: relative; }
       .Keyboard div.notes .KeysInScale div {
         float: left;
         width: 2em;
@@ -27,7 +29,7 @@
         .Keyboard div.notes .KeysInScale div div.b {
           position: absolute;
           top: 9.5em;
-          left: -1.1em;
+          left: -.7em;
           width: 1em;
           font-size: .6rem;
           color: #FFF; }
@@ -36,11 +38,13 @@
   .Keyboard div.keys {
     width: 100%;
     height: 9em;
-    margin: -1.8em auto 0 auto; }
+    margin: auto; }
     .Keyboard div.keys .KeysInScale {
       margin: auto;
       clear: both;
-      width: 29em; }
+      width: 29em;
+      top: -.5em;
+      position: relative; }
       .Keyboard div.keys .KeysInScale div {
         float: left;
         width: 2em;
@@ -70,7 +74,7 @@
         .Keyboard div.keys .KeysInScale div div.b {
           position: absolute;
           top: 0;
-          left: -.8em;
+          left: -.5em;
           width: 1em;
           height: 6em;
           z-index: 1;

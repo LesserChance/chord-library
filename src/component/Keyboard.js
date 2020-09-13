@@ -8,7 +8,7 @@ import 'css/keyboard.css';
 
 const Keyboard = (props) => {
   return (
-    <div className="Keyboard my-3">
+    <div className="Keyboard">
       <div className="notes">
         <KeysInScale showName={true} />
       </div>

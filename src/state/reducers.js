@@ -1,34 +1,85 @@
 /* Global imports */
-import { combineReducers } from 'redux'
+import update from 'immutability-helper';
 
 /* App imports */
-import { Scales, Notes, Chords } from 'const'
-import { getNotesInScale, getNotesInChord} from 'state/util'
+import { Scales, Notes, Chords, ScaleChordMap } from 'const'
+import { Actions } from 'state/actions'
+import { getNotesInScale, getNotesInChord } from 'state/util'
 
-let scale_rootnote = Notes['C'];
-let chord_rootnote = Notes['G'];
-let selected_chord_type = Chords['maj7'];
+let scaleRootnote = Notes['C'];
+let chordRootnote = Notes['C'];
+let selectedChordType = Chords['maj'];
 
 let initialState = {
-  scale: Scales.Major,
-  scale_rootnote: scale_rootnote,
-  chord_rootnote: chord_rootnote,
+  keyScale: Scales.Major,
+  keyRootnote: scaleRootnote,
 
-  // the chord type within the scale (mjor or minor)
-  scale_chord_type: Chords['maj'],
-  scale_chord_position: 3,
+  // the chord
+  chordRootnote: chordRootnote,
+  scaleChordType: Chords['maj'],
+  scaleChordPosition: 0,
 
   // the type of chord to display notes for
-  selected_chord_type: selected_chord_type,
+  selectedChordType: selectedChordType,
 
   // calculated properties
-  notes_in_scale: getNotesInScale(Scales.Major, scale_rootnote),
-  notes_in_chord: getNotesInChord(selected_chord_type, chord_rootnote)
+  notesInScale: getNotesInScale(Scales.Major, scaleRootnote),
+  notesInChord: getNotesInChord(selectedChordType, chordRootnote)
+}
 
+function deriveScaleChordType(scale, scaleChordPosition) {
+  return ScaleChordMap[scale][scaleChordPosition];
+}
+
+function deriveSelectedChordType(scale, scaleChordPosition) {
+  return ScaleChordMap[scale][scaleChordPosition]
+}
+
+function derviceChordRootnote(scale, scaleRootnote, scaleChordPosition) {
+  return getNotesInScale(scale, scaleRootnote)[scaleChordPosition]
 }
 
 export default function reduce(state = initialState, action) {
   switch (action.type) {
+    case Actions.SET_KEY:
+      var scaleChordType = deriveScaleChordType(action.scale, state.scaleChordPosition)
+      var selectedChordType = deriveSelectedChordType(action.scale, state.scaleChordPosition)
+      var chordRootnote = derviceChordRootnote(action.scale, action.rootnote, state.scaleChordPosition)
+
+      return update(state, {
+        keyScale: {$set: action.scale},
+        keyRootnote: {$set: action.rootnote},
+
+        scaleChordType: {$set: scaleChordType},
+        selectedChordType: {$set: selectedChordType},
+        chordRootnote: {$set: chordRootnote},
+
+        notesInScale: {$set: getNotesInScale(action.scale, action.rootnote)},
+        notesInChord: {$set: getNotesInChord(selectedChordType, chordRootnote)}
+      });
+
+    case Actions.SELECT_CHORD_POSITION:
+      var scaleChordType = deriveScaleChordType(state.keyScale, action.scaleChordPosition)
+      var selectedChordType = deriveSelectedChordType(state.keyScale, action.scaleChordPosition)
+      var chordRootnote = derviceChordRootnote(state.keyScale, state.keyRootnote, action.scaleChordPosition)
+
+      return update(state, {
+        scaleChordPosition: {$set: action.scaleChordPosition},
+
+        scaleChordType: {$set: scaleChordType},
+        selectedChordType: {$set: selectedChordType},
+        chordRootnote: {$set: chordRootnote},
+
+        notesInChord: {$set: getNotesInChord(selectedChordType, chordRootnote)}
+      });
+
+    case Actions.SET_SELECTED_CHORD_TYPE:
+      return update(state, {
+        selectedChordType: {$set: action.selectedChordType},
+
+        notesInChord: {$set: getNotesInChord(action.selectedChordType, state.chordRootnote)}
+      });
+
     default:
       return state;
   }
